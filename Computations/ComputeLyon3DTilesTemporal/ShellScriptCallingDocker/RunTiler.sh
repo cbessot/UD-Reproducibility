@@ -5,13 +5,13 @@ cd "$(dirname "$0")" || exit
 
 # This script strips the CityGML files some un-necessary attibutes.
 
-if [ $# != 2 ]; then
-    echo "Two parameters must be provided to this script:"
+if [ $# != 1 ]; then
+    echo "One parameter must be provided to this script:"
     echo "  1. input folder [a folder containing differences (json) files"
     echo "     within sub-directories as produced by e.g. the script"
     echo "     ./DockerExtractBuildingDates.sh],"
-    echo "  2. the output folder holding the computed tileset."
-    echo "Note: the rest i.e. almost everything is alas hardwired."
+#    echo "  2. the output folder holding the computed tileset."
+#    echo "Note: the rest i.e. almost everything is alas hardwired."
     exit 1
 fi
 
@@ -25,7 +25,7 @@ docker build -t liris:Py3dTilesTiler CityTiler-DockerContext
 popd
 
 run_docker() {
-  # We must by-pass the entry-point and invoke a shell by hand in 
+  # We must by-pass the entry-point and invoke a shell by hand in
   # order to avoid to get bitten by some premature shell interpretation
   # of the wildcard argument of the --temporal_graph flag (references:
   #  - https://stackoverflow.com/questions/41428013/why-does-wildcard-for-jar-execution-not-work-in-docker-cmd
@@ -48,4 +48,4 @@ run_docker() {
 
 mkdir -p $2
 # A single run gathers it all in a single Temporal tileset:
-run_docker $1 $2
+run_docker $1 # $2

@@ -5,13 +5,13 @@ cd "$(dirname "$0")" || exit
 
 # FIXME : presistence with "local directory mounts"
 #
-# TIP: try the syntax documented [here](https://github.com/tum-gis/3dcitydb-docker-postgis#bind-mounts) 
+# TIP: try the syntax documented [here](https://github.com/tum-gis/3dcitydb-docker-postgis#bind-mounts)
 #
-# Objective: we want to persit the build database as a set of (database) 
+# Objective: we want to persit the build database as a set of (database)
 # files in order to transmit them to some partner (in other terms, we
-# want to have at hand the result of the database integration). 
+# want to have at hand the result of the database integration).
 #
-# What was tried: if we try to follow e.g. 
+# What was tried: if we try to follow e.g.
 #   https://stackoverflow.com/questions/46504902/postgres-docker-persistence
 # the the --mount option seems ineffective. For example is we run
 #   mkdir -p database-2009
@@ -26,7 +26,7 @@ cd "$(dirname "$0")" || exit
 # uploading the DB, the database-2009 directory remains empty...
 #
 # Some clues:
-# * run 
+# * run
 #   docker run -it --name citydb-container-2009 -p 5432:5432 \
 #   -e "CITYDBNAME=citydb-full_lyon-2009"   -e "SRID=3946" \
 #   -e "SRSNAME=espg:3946"   -e "POSTGRES_USER=postgres" \
@@ -48,8 +48,8 @@ cd "$(dirname "$0")" || exit
 # - https://docs.docker.com/storage/bind-mounts/
 
 echo "Launching the (dockerized) 3dcitydb-postgis database servers."
-./LaunchDataBaseServerFirst.sh
-./LaunchDataBaseServerSecond.sh
+#./LaunchDataBaseServerFirst.sh
+#./LaunchDataBaseServerSecond.sh
 ./LaunchDataBaseServerThird.sh
 
 echo -n "   Waiting for tumgis/3dcitydb-postgis to spin off..."

@@ -3,7 +3,7 @@
 # This script only works when invocated where it stands...
 cd "$(dirname "$0")" || exit
 
-docker run -dt --name citydb-container-{{PG_VINTAGE}} \
+docker run --rm -dt --name citydb-container-{{PG_VINTAGE}} \
   -p {{PG_PORT}}:5432 \
   -e "CITYDBNAME={{PG_NAME}}" \
   -e "SRID=3946" \

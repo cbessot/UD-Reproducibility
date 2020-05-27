@@ -23,7 +23,7 @@ pushd ../Docker/
 docker build -t liris:collect_lyon_data Collect-DockerContext
 popd
 
-run_docker() { 
+run_docker() {
   docker run \
     --mount src=`pwd`,target=/Output,type=bind \
     -t liris:collect_lyon_data \
@@ -31,16 +31,16 @@ run_docker() {
 }
 
 run_docker LYON_1ER_${1}.zip     $2
-run_docker LYON_2EME_${1}.zip    $2
-run_docker LYON_3EME_${1}.zip    $2
-run_docker LYON_4EME_${1}.zip    $2
-run_docker LYON_5EME_${1}.zip    $2
-run_docker LYON_6EME_${1}.zip    $2
-run_docker LYON_7EME_${1}.zip    $2
-run_docker LYON_8EME_${1}.zip    $2
-run_docker LYON_9EME_${1}.zip    $2
-run_docker BRON_${1}.zip         $2
-run_docker VILLEURBANNE_${1}.zip $2
+#run_docker LYON_2EME_${1}.zip    $2
+#run_docker LYON_3EME_${1}.zip    $2
+#run_docker LYON_4EME_${1}.zip    $2
+#run_docker LYON_5EME_${1}.zip    $2
+#run_docker LYON_6EME_${1}.zip    $2
+#run_docker LYON_7EME_${1}.zip    $2
+#run_docker LYON_8EME_${1}.zip    $2
+#run_docker LYON_9EME_${1}.zip    $2
+#run_docker BRON_${1}.zip         $2
+#run_docker VILLEURBANNE_${1}.zip $2
 
 # Notice that the files are patched by the container ENTRYPOINT
 # command (i.e. the script Collect-DockerContext/collect_data.sh)

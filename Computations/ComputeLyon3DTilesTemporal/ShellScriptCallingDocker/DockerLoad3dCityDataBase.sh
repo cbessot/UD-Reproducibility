@@ -37,7 +37,7 @@ run_docker() {
   InputConfigAbsDir=$(dirname ${InputConfigAbsFilename})
   InputConfigFilename=$(basename ${InputConfigAbsFilename})
   InputFilesAbsDir=$(realpath ${2})
-  docker run --name 3dcitydb-impexp \
+  docker run --rm --name 3dcitydb-impexp \
     --mount src=${InputConfigAbsDir},target=/InputConfig,type=bind \
     --mount src=${InputFilesAbsDir},target=/InputFiles,type=bind \
     tumgis/3dcitydb-impexp:4.2.2 \
