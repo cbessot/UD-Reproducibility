@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script downloads the designated CityGML archive files from Lyon
-# Metropole open data repository, extracts the files of the form 
+# Metropole open data repository, extracts the files of the form
 # *BATI*.gml and when necessary applies some  ad-hoc fixes on well
 # known inconsistancies.
 # $1: the filename to retrieved
@@ -18,7 +18,7 @@ echo "Fetching file: ${filename}"
 wget -q ${filename}
 echo "Fetching done."
 echo "Unziping archive:"
-unzip -q ${1} *BATI*.gml
+unzip -q ${1}
 echo "Unziping done."
 rm ${1}
 
